@@ -1,0 +1,47 @@
+<div class="span16">
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Novo Fornecedor', new_fornecedor_path, class:"btn btn-primary margin_form"%>
+
+<div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+          Fornecedor
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
+        <%= form_tag(pega_fornecedors_path, method: :get, :remote => true) do %>
+          <div class="form-inline"> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_p %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+
+<table id="table_fornecedors">
+  <thead>
+    <tr>
+      <th class="span3"5">Nome fornecedor</th>
+      <th class="span3">Ramo</th>
+      <th class="span3">Vendedor</th>
+      <th class="span3">Telefone</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+

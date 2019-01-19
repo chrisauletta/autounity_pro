@@ -1,0 +1,105 @@
+.leftcontact {
+  width:49.5%; 
+  float:left;
+  border-right: 1px dotted #CCC;
+  box-sizing: border-box;
+  padding: 0px 15px 0px 0px;
+}
+
+.rightcontact {
+  width:49.5%;
+  float:right;
+  box-sizing: border-box;
+  padding: 0px 0px 15px 15px;
+}
+
+
+table
+{
+	width: auto;
+}
+
+thead
+{
+	display: block;
+	width: auto;
+	overflow: auto;
+	color: #fff;
+	background: #048AE4;
+}
+
+tbody
+{
+	display: block;
+	width: auto;
+	height: 300px;
+	background: #BBBBBB;
+	overflow: auto;
+	overflow-x: auto;
+}
+
+
+th,td
+{
+	padding: .5em 1em;
+	text-align: left;
+	vertical-align: top;
+	border-bottom: 1px solid #fff;
+}
+
+.t-danger{
+	background: #ff442b;
+}
+
+.t-pendent{
+	background: #ffc52c;
+}
+
+.modal-lg{
+    /* new custom width */
+    width: 900px;
+    /* must be half of the width, minus scrollbar on the left (30px) */
+    margin-left: -475px;
+}
+
+.height-label{
+	height: 60px;
+}
+
+.teste{
+	background: black;
+}
+
+hr{
+	border: 1px solid grey;
+}
+
+.valor_total{
+	float: right;
+	font-size: 30px;
+	text-align: right;
+}
+
+ .header-right2{
+     position: relative;
+     right: 0px;
+     bottom: 0px;
+     width: 200px;
+    }
+
+ .margin_form{
+ 	margin-bottom: 10px;
+ }
+
+  .margin_form_g{
+ 	margin-bottom: 30px;
+ }
+
+ .estilotextarea {
+ 	width:300px;
+ 	height:80px;
+ }
+
+ .seta_user h3{
+ 	color: red;
+ }

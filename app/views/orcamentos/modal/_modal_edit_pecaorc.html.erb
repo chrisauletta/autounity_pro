@@ -1,0 +1,21 @@
+<div id="modalPecaEdit" class="modal hide fade modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Editar Peça</h3>
+  </div>
+  <div class="modal-body">
+
+<%= form_tag(peca_edit_orc_path(pecas), method: :post) do %>
+          
+
+ <%= label_tag :Quantidade %>
+    <%= text_field_tag :quantidade, pecas.quantidade%>
+
+    <%= label_tag :Preço %>
+    <%= text_field_tag :preco_o, pecas.preco_o%>
+    </br>
+    <%= submit_tag "Editar"%>
+<%end%>
+
+</div>

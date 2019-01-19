@@ -1,0 +1,50 @@
+<div class="span16">
+<%= link_to 'Nova Peça', new_peca_path, class:"btn btn-primary margin-form" %>
+<p id="notice"><%= notice %></p>
+
+<div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+          Peças
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
+
+
+      <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_p %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+          <% end %>
+
+  <table id="pecas_index" class="table">
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Tipo</th>
+      <th class="span3">Fabricante</th>
+      <th class="span3">Preço</th>
+      <th class="span3">Marca</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<br>
+
+</div>

@@ -1,0 +1,27 @@
+
+<div class="box-content box-table">
+<%=form_tag estoque_edit_path %>
+<table id="tabela_index" class="table table-hover table-bordered tablesorter">
+ <thead>
+    <tr>
+      <th><input type="checkbox" name="peca"></th>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Fabricante</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @pecas_e.each do |peca| %>
+  	<tr>
+  		<td><%= peca.nome %></td>
+  		<td><%= peca.tipo %></td>
+  		<td><%= peca.fabricante %></td>
+      <td><%= link_to '=>', estoque_edit_path(peca), method: :post%></td>
+  	</tr>
+  <% end %>
+
+  </tbody>
+  </table>
+<%= submit_tag "Vai!" %>
+  </div>
+

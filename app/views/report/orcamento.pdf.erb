@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unity System</title>
+     <meta charset="UTF-8"/>
+
+    <%= csrf_meta_tags %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+    <style type="text/css">
+      * {
+    margin: 0;
+    padding: 0;
+    font-family: 'AvenirNext-Light', 'Avenir Next Light', 'Avenir Next', sans-serif;
+        }
+
+     body {
+      font-size: 100%;
+      padding: 50px;
+      background: #fff;
+    }
+
+    .header {
+    margin-left: 0px;
+    }
+
+    .header-right{
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     padding: 50px;
+    }
+
+    .header-right2{
+     position: absolute;
+     right: 0px;
+     bottom: 0px;
+     padding-top: 50px;
+     width: 200px;
+    }
+
+    .block{
+      height: 60px;
+      width: 600px;
+    }
+
+    .inner {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 15px;
+          }
+      .inner2{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+     table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    position: relative;
+    margin-right:auto; 
+    margin-left:auto;
+    padding: 2px;
+        }
+      thead{
+        background: #ccc;
+      }
+
+      .row {
+          display: inline-block;
+
+  margin-left: -20px;
+  *zoom: 1;
+}
+
+      }
+.span6 {
+  width: 352px;
+}
+.span5 {
+  width: 290px;
+}
+.span4 {
+  width: 228px;
+}
+.span3 {
+  width: 166px;
+}
+.span2 {
+  width: 104px;
+}
+.span1 {
+  width: 42px;
+}
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header">
+     <h2>Oficina Continental</h2>
+     <h4>Rua: Continental 1054</h4>
+    </div>
+     <div class="header-right">
+    <h3>4177-1663</h3>
+    <h3>4238-2020</h3>
+</div> 
+
+     <hr>
+     <% if logged_in? %>
+<%end%>
+
+<div class="block">
+<% if @orcamento.cliente.cliente_f != nil %>
+Nome:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_f.nome%></span>
+<%else%>
+Razao Social:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_j.razao_social%></span>
+<%end%>
+<div class="inner inner2"> Telefone: <%=@orcamento.cliente.telefone%></div>
+<div class="inner"> Celular: <%=@orcamento.cliente.celular%></div>
+</br>
+
+<div class="inner"> Placa: <%=@orcamento.veiculo.placa%></div>
+<div class="inner inner2"> Marca: <%=@orcamento.veiculo.marca%></div>
+<div class="inner"> Modelo: <%=@orcamento.veiculo.modelo%></div>
+</div>
+
+<hr>
+
+      <%if @current_user.cargo != "mecanico"%>
+
+    <table style="width: 90%">
+      <caption> Relaçao de Pecas</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Preco Uni.</th>
+              <th>Qtd.</th>
+              <th>Preco Total </th>
+            </tr>
+          </thead>
+          <%sumP = 0.0%>
+
+          <tbody>
+         <% @orcamento.peca_orc.each do |peca_orc| %>
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
+                <tr>
+                <td class="span3"><%= peca_orc.peca.nome %></td>
+                <td class="span2">R$ <%= peca_orc.preco_o %></td>
+                <td class="span1"><%= peca_orc.quantidade %></td>
+                <td class="span2"><%= peca_orc.preco_o * peca_orc.quantidade%></td>
+                </tr>
+          <%end%>
+          </tbody>
+        </table>
+
+</br>
+ <table style="width: 90%">
+      <caption> Relaçao de Serviços</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Preco</th>
+            </tr>
+          </thead>
+          <%sumS = 0.0%>
+
+          <tbody>
+        <% @orcamento.servico_orc.each do |servico_orc| %>
+                <%sumS += servico_orc.preco_s%>
+                <tr>
+                <td class="span3"><%= servico_orc.servico.nome %></td>
+                <td class="span2">R$ <%= servico_orc.preco_s %></td>
+              </tr>
+        <%end%>
+          </tbody>
+        </table>
+
+        <%else%>
+        
+    <table style="width: 90%">
+      <caption> Relaçao de Pecas</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Qtd.</th>
+            </tr>
+          </thead>
+          <%sumP = 0.0%>
+
+          <tbody>
+         <% @orcamento.peca_orc.each do |peca_orc| %>
+                <%sumP += peca_orc.preco_o * peca_orc.quantidade%>
+                <tr>
+                <td class="span3"><%= peca_orc.peca.nome %></td>
+                <td class="span1"><%= peca_orc.quantidade %></td>
+                </tr>
+          <%end%>
+          </tbody>
+        </table>
+
+</br>
+ <table style="width: 90%">
+      <caption> Relaçao de Serviços</caption>
+
+         <thead>
+            <tr>
+              <th>Nome</th>
+            </tr>
+          </thead>
+          <%sumS = 0.0%>
+
+          <tbody>
+        <% @orcamento.servico_orc.each do |servico_orc| %>
+                <%sumS += servico_orc.preco_s%>
+                <tr>
+                <td class="span3"><%= servico_orc.servico.nome %></td>
+              </tr>
+        <%end%>
+          </tbody>
+        </table>
+
+        <%end%>
+        </br>
+        <hr>
+        </br>
+
+    <div class="row">
+<div class="span4">
+    <p>
+   <%= label_tag "Ocorrência:" %>
+      <%= @orcamento.ocorrencia %>
+    </p>
+</div>
+
+ <div>
+    <%= label_tag "Diagnostico:" %>
+    <%= @orcamento.diagnostico%> 
+</div>
+
+ <div>
+    <%= label_tag "Serviço Executado:" %>
+    <%=  @orcamento.execucao%>
+</div>
+
+  <div class="span5">
+   <div class="header-right2">
+      <%if @current_user.cargo != "mecanico"%>
+    <h4>Valor Peças:R$ <%= sumP%></h4>
+    <h4>Valor Serviços:R$ <%= sumS%></h4>
+    <h3>Valor Total:R$ <%=@orcamento.valor_total%></h3>
+    <%end%>
+  </div> 
+</div>
+
+</div>
+
+  </body>
+
+</html>

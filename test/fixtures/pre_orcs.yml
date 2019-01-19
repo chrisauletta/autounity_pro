@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  valor: 1
+  orcamento_id: one
+
+two:
+  descricao: MyString
+  valor: 1
+  orcamento_id: two

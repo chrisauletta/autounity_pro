@@ -1,0 +1,51 @@
+<div class="span16">
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Novo Serviço', new_servico_path, class:"btn btn-primary margin_form" %>
+
+
+<div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+          Serviços
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
+
+
+<table>
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Descrição</th>
+      <th class="span3">Preço</th>
+      <th class="span5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servicos.each do |servico| %>
+      <tr>
+        <td class="span3"><%= servico.nome %></td>
+        <td class="span3"><%= servico.descricao %></td>
+        <td class="span3"><%= servico.preco %></td>
+        <td class="span5"><%= link_to 'Exibir', servico, class:"btn btn-small btn-default"  %>
+        <%= link_to 'Editar', edit_servico_path(servico), class:"btn btn-small btn-primary" %>
+        <%= link_to 'Deletar', servico, method: :delete, data: { confirm: 'Tem certeza' }, class:"btn btn-small btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+

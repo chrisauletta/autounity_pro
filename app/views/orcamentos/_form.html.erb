@@ -1,0 +1,70 @@
+<div class="span16">
+<%= notice %>
+
+ 
+ <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+          <%= select(:cli, :selec, [ 'Nome','Razao Social']) %> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_c %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+<% end %>
+
+<%= form_with(model: orcamento, local: true) do |form| %>
+<table id="table_new_orc">
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Telefone</th>
+      <th class="span3">Celular</th>
+      <th class="span3">E-mail</th>
+      <th class="span3">Observações</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   
+  </tbody>
+</table>
+</br>
+
+<table id="veiculo_orc">
+  <thead>
+    <tr>
+      <th class="span3">Placa</th>
+      <th class="span3">Marca</th>
+      <th class="span3">Modelo</th>
+      <th class="span3">Ano</th>
+      <th class="span3">Cor</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+  </table>
+
+  <div class="field">
+    <%= form.label :Quilometragem %>
+    <%= form.number_field :quilometragem, id: :orcamento_quilometragem %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :Ocorrência %>
+    <%= form.text_area :ocorrencia, id: :orcamento_ocorrencia, class:"estilotextarea" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Status %>
+    <%= select(:orcamento, :status, [ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento']) %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Criar Orçamento" %>
+  </div>
+<% end %>
+</div>

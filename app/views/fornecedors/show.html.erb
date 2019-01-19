@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome fornecedor:</strong>
+  <%= @fornecedor.nome_fornecedor %>
+</p>
+
+<p>
+  <strong>Ramo:</strong>
+  <%= @fornecedor.ramo %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @fornecedor.vendedor %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @fornecedor.telefone %>
+</p>
+
+<%= link_to 'Editar', edit_fornecedor_path(@fornecedor), class:"btn btn-primary"%>|
+<%= link_to 'Voltar', fornecedors_path, class:"btn btn-primary"%>

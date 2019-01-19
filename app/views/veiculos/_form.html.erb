@@ -1,0 +1,87 @@
+<div class="span16">
+<p id="notice"><%= notice %></p>
+
+     <% if veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(veiculo.errors.count, "error") %> prohibited this veiculo from being saved:</h2>
+      <ul>
+      <% veiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box pattern pattern-sandstone">
+
+    <div class="box-header">
+       <i class="icon-table"></i>
+        <h5>
+        Clientes
+        </h5>
+    </div>
+
+    <div class="box-content">
+    <div class="row">
+    <div class="span15">
+ <%= form_tag(pega_cliente_path, method: :get, :remote => true) do %>
+          <div class="form-inline">
+          <%= select(:cli, :selec, [ 'Nome','Razão Social']) %> 
+          <%= label_tag :nome %>
+          <%= text_field_tag :nome_c %>
+          <%= submit_tag "Encontrar"%>
+          </div>
+<% end %>
+
+<%= form_with(model: veiculo, local: true) do |form| %>          
+<table id="veiculo">
+  <thead>
+    <tr>
+      <th class="span3">Nome</th>
+      <th class="span3">Telefone</th>
+      <th class="span3">Celular</th>
+      <th class="span3">E-mail</th>
+      <th class="span3">Observações</th>
+      <th class="span3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+  
+  <div class="field">
+    <%= form.label :placa %>
+    <%= form.text_field :placa, id: :veiculo_placa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :marca %>
+<%= select(:veiculo, :marca, ['Acura','Agrale','Alfa Romeo','AM Gen','Asia Motors','ASTON MARTIN','Audi','BMW','BRM','Buggy','Bugre','Cadillac','CBT Jipe','CHANA','CHANGAN','CHERY','Chrysler','Citroen','Cross Lander','Daewoo','Daihatsu','Dodge','EFFA','Engesa','Envemo','Ferrari','Fiat','Fibravan','Ford','FOTON','Fyber','GEELY','GM - Chevrolet','GREAT WALL','Gurgel','HAFEI','Honda','Hyundai','Isuzu','JAC','Jaguar','Jeep','JINBEI','JPX','Kia Motors','Lada','LAMBORGHINI','Land Rover','Lexus','LIFAN','LOBINI','Lotus','Mahindra','Maserati','Matra','Mazda','Mercedes-Benz','Mercury','MG','MINI','Mitsubishi','Miura','Nissan','Peugeot','Plymouth','Pontiac','Porsche','RAM','RELY','Renault','Rolls-Royce','Rover','Saab','Saturn','Seat','SHINERAY','smart','SSANGYONG','Subaru','Suzuki','TAC', 'Toyota','Troller','Volvo','VW - VolksWagen','Dafra','Honda','Kawasaki']) %>  </div>
+
+  <div class="field">
+    <%= form.label :modelo %>
+    <%= form.text_field :modelo, id: :veiculo_modelo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ano %>
+    <%= form.text_field :ano, id: :veiculo_ano %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cor %>
+    <%= form.text_field :cor, id: :veiculo_cor %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit "Cadastrar", class:"btn btn-primary margin_form" %>
+  </div>
+<% end %>
+</div>

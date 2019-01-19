@@ -1,0 +1,40 @@
+<div class="span16">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Placa:</strong>
+  <%= @veiculo.placa %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @veiculo.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @veiculo.modelo %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @veiculo.ano %>
+</p>
+
+<p>
+  <strong>Cor:</strong>
+  <%= @veiculo.cor %>
+</p>
+
+<% if @veiculo.cliente.cliente_f != nil %>
+<p>
+  <strong>Cliente:</strong>
+  <%= @veiculo.cliente.cliente_f.nome %> <%= @veiculo.cliente.cliente_f.sobrenome %>
+</p>
+<%else%>
+<p>
+  <strong>Cliente:</strong>
+  <%= @veiculo.cliente.cliente_j.razao_social %>
+</p>
+<%end%>
+</div>

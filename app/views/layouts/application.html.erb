@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unity System</title>
+        <meta charset="UTF-8"/>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="layout" content="main"/>
+
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     	<link rel="shortcut icon" href="logo.png" type="image/x-icon" />    
+
+  </head>
+     <body>
+
+     	<% if logged_in? %>
+		<%end%>
+	<div id="logo">
+<%=image_tag("logo.png", class: "img-logo")%>
+</div>
+      <div class="navbar">
+
+            <div class="navbar-inner">
+                <div class="container">
+                    
+                    <div >
+                        <ul class="nav">
+                            <li class="dropdown">
+                            <%=link_to financeiro_path, class:"dropdown-toggle" do %>
+		       				Financeiro
+		   			<%end%>
+		   					</li>
+                            
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li>
+                                <a href="login.html" class="brand">Auto Unity</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>    
+
+        <div id="body-container">
+            <div id="body-content">
+		            <div class="body-nav body-nav-vertical body-nav-fixed">
+		                <div class="container">
+                        <ul>
+		                                <li>
+		          					<%=link_to dashboard_path do %>
+		          					<i class="icon-dashboard icon-large"></i>
+		          					Dashboard
+		          					<%end%>
+		                                </li>
+		                                <li>     
+		                            <%=link_to clientes_path do %>
+		          					<i class="icon-user icon-large""></i>
+		          					Cliente
+		          					<%end%>
+		                                </li>
+		                                    <li>     
+		                            <%=link_to veiculos_path do %>
+		          					<i class="fa fa-car icon-large"></i>
+		          					Veículo
+		          					<%end%>
+		                                </li>
+		                                    <li>     
+		                            <%=link_to orcamentos_path do %>
+		          					<i class="icon-list-alt icon-large"></i>
+		          					Orçamento
+		          					<%end%>
+		                                </li>
+		                                	<li>     
+		                            <%if @current_user.cargo == "mecanico"%>
+
+		                            <%else%>
+		                            <%=link_to pecas_path do %>
+		          					<i class="fa fa-cubes icon-large"></i>
+		          					Peças
+		          					<%end%>
+		                                </li>
+		                                    <li>     
+		                            <%=link_to servicos_path do %>
+		          					<i class="fa fa-wrench icon-large"></i>
+		          					Serviços
+		          					<%end%>
+		                                </li>
+		                                      <li>     
+		                            <%=link_to fornecedors_path do %>
+		          					<i class="fa fa-handshake-o icon-large"></i>
+		          					Fornecedor
+		          					<%end%>
+		                                </li>
+		                        </ul>
+		                        <%end%>
+		                </div>
+		            </div>
+		        <section class="nav nav-page">
+			        <div class="container">
+			            <div class="row">
+			                <div class="span7">
+			                  <%= render 'layouts/header' %> 
+			                </div>
+			                <div class="page-nav-options">
+			                    <div class="span5">
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </section>
+
+			    <div id="status_orcamento">
+			    	
+			    
+			    </div>        
+	
+
+			    <section class="page container">
+				    <div class="row">
+ 						<%= yield %>
+				    </div>
+			    </section>
+                   
+	    	</div>    
+	    </div>
+
+  </body>
+</html>

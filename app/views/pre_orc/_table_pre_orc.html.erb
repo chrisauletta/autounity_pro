@@ -1,0 +1,9 @@
+<%@somapre2 = 0.0%>
+<% pre_orc.each do |pre| %>
+<%@somapre2 += pre.valor%>
+        <tr>
+        <td class="span6"><%= pre.descricao %></td>
+        <td class="span3"><%= pre.valor %></td>
+        <td class="span6"><%= link_to 'Deletar', delete_pre_orc_path(pre), method: :delete, class:"btn btn-danger", data: { confirm: 'Tem certeza?' } %></td>
+        </tr>
+<% end %>

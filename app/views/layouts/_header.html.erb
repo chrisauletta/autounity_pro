@@ -1,0 +1,15 @@
+<header class="page-header">
+    <div>
+      <nav>
+        <ul>
+          <% if logged_in? %>
+                <li>Usuario: <%= @current_user.nome %></li>
+                 <li>Cargo: <%= @current_user.cargo %></li>
+                <li>
+                  <%= link_to "Sair", sign_out_path, method: "delete" %>
+          <% else %>
+            <li><%= link_to "Log in", root_path %></li>
+          <% end %>
+      </nav>
+    </div>
+  </header>
