@@ -1,0 +1,30 @@
+<%@pecat.each do |pecax|%>
+<h3>Nome Fornecedor: <%=pecax.fornecedor.nome_fornecedor%></h3>
+<table id="despesa_table_1" class="table table-hover">
+  <thead>
+  <th class="span3">Data</th>
+  <th class="span3">Nome Cliente</th>
+  <th class="span3">Carro</th>
+  <th class="span3">Cor</th>
+  <th class="span3">Peça</th>
+  <th class="span3">Fornecedor</th>
+  <th class="span3">Valor</th>
+  </thead>
+
+  <tbody>
+    <%pecas_orc.each do |pecaorc| %>
+    <tr>
+    <%if pecaorc.peca.fornecedor.nome_fornecedor == pecax.fornecedor.nome_fornecedor%>
+    <td class="span3"><%=pecaorc.created_at%></td>
+    <td class="span3"><%=pecaorc.orcamento.cliente.cliente_f.nome%></td>
+    <td class="span3"><%=pecaorc.orcamento.veiculo.modelo%></td>
+    <td class="span3"><%=pecaorc.orcamento.veiculo.cor%></td>
+    <td class="span3"><%=pecaorc.peca.nome%></td>
+    <td class="span3"><%= pecaorc.peca.fornecedor.nome_fornecedor %></td>
+    <td class="span3"><%= pecaorc.peca.preco%></td>
+    <%end%>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+<%end%>

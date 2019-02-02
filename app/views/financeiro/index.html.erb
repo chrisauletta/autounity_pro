@@ -1,48 +1,39 @@
 <div class="span16">
-<div class="box pattern pattern-sandstone">
+  <div class="row">
+    <div class="box pattern pattern-sandstone">
 
-    <div class="box-header">
-       <i class="icon-table"></i>
-        <h5>
-          Peças
-        </h5>
-    </div>
+      <div class="box-header">
+         <i class="icon-table"></i>
+          <h5>
+          Busca personalisada
+          </h5>
+      </div>
+      <div class="box-content">
+          <div class="row">
+              <div class="span14">
+                <%= form_tag(busca_despesa_path, method: :get, :remote => true) do %>
+                    <div class="form-inline">
+                    <%#= label_tag :Fornecedores %>
+                    <%#= text_field_tag :fornecedor %>
+                    <%#= collection_select(:fornecedor, @fornecedors, :id, :busca_despesa, prompt: true) %>
+                    <%= label_tag :DataIncio  %>
+                    <%= text_field_tag :datai %>
+                    <%= label_tag :DataFinal %>
+                    <%= text_field_tag :dataf %>
+                    <%= submit_tag "Incluir"%>
+                    </div>
+                    <% end %>
 
-    <div class="box-content">
-    <div class="row">
-    <div class="span15">
+                    <div id="despesa">
+                    </div>
 
-<p id="notice"><%= notice %></p>
-
-      <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
-          <%= label_tag :nome %>
-          <%= text_field_tag :nome_p %>
-          <%= submit_tag "Encontrar"%>
+              </div>
           </div>
-          <% end %>
-
-  <table id="pecas_index" class="table">
-  <thead>
-    <tr>
-      <th class="span3">Nome</th>
-      <th class="span3">Fornecedor</th>
-      <th class="span3">Cliente</th>
-      <th class="span3">Veiculo</th>
-      <th class="span3">Data</th>
-      <th class="span3" colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <%= render 'financeiro/table/index_financeiro', peca_f: @peca_f %>
-  </tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-
-<br>
+      </div>
+      <div id="valor_total_pre" class="box-footer">
+        <h3>Valor Total:R$ </h3>
+      </div>
+    </div>
+  </div>
 
 </div>

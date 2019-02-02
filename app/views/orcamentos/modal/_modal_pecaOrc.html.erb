@@ -8,39 +8,40 @@
 <% if logged_in? %>
 <%end%>
 
-  
+
       <%= form_tag(pega_peca_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
+          <div class="form-inline">
           <%= label_tag :nome %>
           <%= text_field_tag :nome_p %>
           <%= submit_tag "Encontrar"%>
           </div>
           <% end %>
-          
+
       <%= form_tag inclui_peca_path do%>
 
       <div class="row">
-      <div class="span11"> 
+      <div class="span12">
 
 
         <table id="table_orc_pecas" class="table table-hover">
           <thead>
             <tr>
-              <th class="span3">Nome</th>
-              <th class="span3">Tipo</th>
-              <th class="span3">Fabricante</th>
+              <th class="span2">Nome</th>
+              <th class="span3">Modelo do Carro</th>
+              <th class="span2">Ano</th>
+              <th class="span2">Fabricante</th>
               <th class="span2">Preço</th>
               <th class="span2">Selecione</th>
             </tr>
           </thead>
 
           <tbody>
-        
+
 
        </tbody>
-      
+
         </table>
-      </div>      
+      </div>
   </div>
 
 
@@ -51,10 +52,10 @@
 
     <%else%>
     <%= label_tag :Quantidade %>
-    <%= text_field_tag :quantidade, "0.0"%>
+    <%= text_field_tag :quantidade, "1"%>
 
     <%= label_tag :Preco %>
-    <%= text_field_tag :preco_o,"0.0"%>
+    <%= text_field_tag :preco_o,""%>
     <%end%>
       <%= submit_tag "Ok", class:"btn btn-primary"%>
     </div>

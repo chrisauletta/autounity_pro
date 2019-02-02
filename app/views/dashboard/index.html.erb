@@ -1,4 +1,4 @@
-<div class="span16">
+<div class="span16" id="teste">
 
 <%= pie_chart Orcamento.where("status != " "'9. Finalizado'").group(:status).count, id: "pie_status" ,legend: "left"%>
 </br>
@@ -16,10 +16,10 @@
 
     <div class="box-content">
     <div class="row">
- 
+
       <div class="span15">
          <%= form_tag(pega_orc_status_path, method: :get, :remote => true) do %>
-          <div class="form-inline"> 
+          <div class="form-inline">
           <%= label_tag :status %>
           <%= select(:orcamento, :status, [ '1. Análise','2. Aguardando Cotação','3. Aguardando Aprovação', '4. Reprovado', '5. Aprovado', '6. Aguardando Fornecedor','7. Em manutenção', '8. Teste', '9. Finalizado', '10. Aguardando Pagamento'], {include_blank: true}) %>
 

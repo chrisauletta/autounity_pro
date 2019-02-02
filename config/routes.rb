@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :veiculos
   root 'sessions#new'
 
+  get "/financeiro" => "financeiro#busca_despesa", as: :busca_despesa
+
   get "/pre_orc/:id" => "pre_orc#inclui_pre_peca", as: :inclui_pre_peca
   delete "/pre_orc/:id" => "pre_orc#destroy", as: :delete_pre_orc
 

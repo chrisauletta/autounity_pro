@@ -17,7 +17,15 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-     	<link rel="shortcut icon" href="logo.png" type="image/x-icon" />    
+     	<link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+
+      <script langauge="javascript">
+  			var counter = document.getElementById("teste").innerHTML;
+  			window.setInterval("refreshDiv()", 5000);
+  			function refreshDiv(){
+  				document.getElementById("teste").innerHTML = counter;
+  			}
+  		</script>
 
   </head>
      <body>
@@ -31,7 +39,7 @@
 
             <div class="navbar-inner">
                 <div class="container">
-                    
+
                     <div >
                         <ul class="nav">
                             <li class="dropdown">
@@ -39,18 +47,18 @@
 		       				Financeiro
 		   			<%end%>
 		   					</li>
-                            
+
                         </ul>
                         <ul class="nav pull-right">
                             <li>
                                 <a href="login.html" class="brand">Auto Unity</a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
 
         <div id="body-container">
             <div id="body-content">
@@ -63,25 +71,25 @@
 		          					Dashboard
 		          					<%end%>
 		                                </li>
-		                                <li>     
+		                                <li>
 		                            <%=link_to clientes_path do %>
-		          					<i class="icon-user icon-large""></i>
+		          					<i class="icon-user icon-large"></i>
 		          					Cliente
 		          					<%end%>
 		                                </li>
-		                                    <li>     
+		                                    <li>
 		                            <%=link_to veiculos_path do %>
 		          					<i class="fa fa-car icon-large"></i>
 		          					Veículo
 		          					<%end%>
 		                                </li>
-		                                    <li>     
+		                                    <li>
 		                            <%=link_to orcamentos_path do %>
 		          					<i class="icon-list-alt icon-large"></i>
 		          					Orçamento
 		          					<%end%>
 		                                </li>
-		                                	<li>     
+		                                	<li>
 		                            <%if @current_user.cargo == "mecanico"%>
 
 		                            <%else%>
@@ -90,13 +98,13 @@
 		          					Peças
 		          					<%end%>
 		                                </li>
-		                                    <li>     
+		                                    <li>
 		                            <%=link_to servicos_path do %>
 		          					<i class="fa fa-wrench icon-large"></i>
 		          					Serviços
 		          					<%end%>
 		                                </li>
-		                                      <li>     
+		                                      <li>
 		                            <%=link_to fornecedors_path do %>
 		          					<i class="fa fa-handshake-o icon-large"></i>
 		          					Fornecedor
@@ -110,7 +118,7 @@
 			        <div class="container">
 			            <div class="row">
 			                <div class="span7">
-			                  <%= render 'layouts/header' %> 
+			                  <%= render 'layouts/header' %>
 			                </div>
 			                <div class="page-nav-options">
 			                    <div class="span5">
@@ -121,18 +129,18 @@
 			    </section>
 
 			    <div id="status_orcamento">
-			    	
-			    
-			    </div>        
-	
+
+
+			    </div>
+
 
 			    <section class="page container">
 				    <div class="row">
  						<%= yield %>
 				    </div>
 			    </section>
-                   
-	    	</div>    
+
+	    	</div>
 	    </div>
 
   </body>

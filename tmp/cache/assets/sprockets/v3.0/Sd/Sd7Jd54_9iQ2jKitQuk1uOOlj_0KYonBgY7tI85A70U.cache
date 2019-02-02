@@ -1,0 +1,7 @@
+I"h(function() {
+  $('.input-group.date').datepicker({
+    format: "dd.mm.yyyy"
+  });
+
+}).call(this);
+:ET
