@@ -109,8 +109,14 @@ Quilometragem:
             </div>
         </div>
     </div>
-    <div id="valor_total_pre" class="box-footer">
-      <h3>Valor Total:R$ <%=somapre%></h3>
+    <div class="box-footer">
+      <div id="valor_total_pre" class="span4"> <h3>Valor Total:R$ <%=somapre%></h3> </div>
+      <div class="span3">
+      <%= link_to report_pre_orc_path(@orcamento, :format => 'pdf'),:target => '_blank', class:"btn btn-large" do %>
+      <i class="icon-print icon-large"></i>
+      Imprimir
+      <%end%>
+    </div>
     </div>
   </div>
 </div>

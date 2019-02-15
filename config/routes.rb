@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
 #Relatorio
   get "/report/:id" => "report#orcamento", as: :report_orc
+  get "/report_pre_orc/:id" => "report#pre_orcamento", as: :report_pre_orc
 
 #Area do mecanico
   get "/oficina" => "oficina#index"

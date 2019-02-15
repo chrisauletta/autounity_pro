@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unity System</title>
+     <meta charset="UTF-8"/>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style type="text/css">
+      * {
+    margin: 0;
+    padding: 0;
+    font-family: 'AvenirNext-Light', 'Avenir Next Light', 'Avenir Next', sans-serif;
+        }
+
+     body {
+      font-size: 100%;
+      padding: 50px;
+      background: #fff;
+    }
+
+    .header {
+    margin-left: 0px;
+    }
+
+    .header-right{
+     position: absolute;
+     right: 0px;
+     top: 0px;
+     padding: 50px;
+    }
+
+    .header-right2{
+     position: absolute;
+     right: 0px;
+     bottom: 0px;
+     padding-top: 50px;
+     width: 200px;
+    }
+
+    .block{
+      height: 60px;
+      width: 600px;
+    }
+
+    .inner {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 15px;
+          }
+      .inner2{
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+
+     table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    position: relative;
+    margin-right:auto;
+    margin-left:auto;
+    padding: 2px;
+        }
+      thead{
+        background: #ccc;
+      }
+
+      .row {
+          display: inline-block;
+
+  margin-left: -20px;
+  *zoom: 1;
+}
+
+      }
+.span6 {
+  width: 352px;
+}
+.span5 {
+  width: 290px;
+}
+.span4 {
+  width: 228px;
+}
+.span3 {
+  width: 166px;
+}
+.span2 {
+  width: 104px;
+}
+.span1 {
+  width: 42px;
+}
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="header">
+       <h2>Auto Paulista Mecânica Automotiva</h2>
+       <h4>Av. Pion Antonio Franco de Morais, 533  - Jardim Brasil</h4>
+      </div>
+       <div class="header-right">
+      <h3>44 3025-5901</h3>
+      <h3>44 99718-8463</h3>
+  </div>
+
+     <hr>
+     <% if logged_in? %>
+<%end%>
+
+<div class="block">
+<% if @orcamento.cliente.cliente_f != nil %>
+Nome:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_f.nome%></span>
+<%else%>
+Razao Social:
+<span class="input-large uneditable-input"><%=@orcamento.cliente.cliente_j.razao_social%></span>
+<%end%>
+<div class="inner inner2"> Telefone: <%=@orcamento.cliente.telefone%></div>
+<div class="inner"> Celular: <%=@orcamento.cliente.celular%></div>
+</br>
+
+<div class="inner"> Placa: <%=@orcamento.veiculo.placa%></div>
+<div class="inner inner2"> Marca: <%=@orcamento.veiculo.marca%></div>
+<div class="inner"> Modelo: <%=@orcamento.veiculo.modelo%></div>
+</div>
+
+<hr>
+
+
+
+    <table style="width: 90%">
+      <caption> Relaçao de Pecas</caption>
+
+         <thead>
+            <tr>
+              <th>Descriçao</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <%sumP = 0.0%>
+
+          <tbody>
+         <% @busca_pre_orc.each do |busca| %>
+                <%sumP += busca.valor%>
+                <tr>
+                <td class="span3"><%=busca.descricao%></td>
+                <td class="span1"><%=busca.valor%></td>
+                </tr>
+          <%end%>
+          </tbody>
+        </table>
+
+
+        </br>
+
+    <div class="row">
+<div class="span4">
+    <p>
+   <%= label_tag "Ocorrência:" %>
+      <%= @orcamento.ocorrencia %>
+    </p>
+</div>
+
+ <div>
+    <%= label_tag "Diagnostico:" %>
+    <%= @orcamento.diagnostico%>
+</div>
+
+ <div>
+    <%= label_tag "Serviço Executado:" %>
+    <%=  @orcamento.execucao%>
+</div>
+
+  <div class="span5">
+   <div class="header-right2">
+      <%if @current_user.cargo != "mecanico"%>
+    <h3>Valor Total:R$ <%=sumP%></h3>
+    <%end%>
+  </div>
+</div>
+
+</div>
+
+  </body>
+
+</html>

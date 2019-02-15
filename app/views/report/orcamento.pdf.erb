@@ -5,10 +5,10 @@
      <meta charset="UTF-8"/>
 
     <%= csrf_meta_tags %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
- 
+
     <style type="text/css">
       * {
     margin: 0;
@@ -60,7 +60,7 @@
     border: 1px solid black;
     border-collapse: collapse;
     position: relative;
-    margin-right:auto; 
+    margin-right:auto;
     margin-left:auto;
     padding: 2px;
         }
@@ -101,13 +101,13 @@
   <body>
 
     <div class="header">
-     <h2>Oficina Continental</h2>
-     <h4>Rua: Continental 1054</h4>
+         <h2>Auto Paulista Mecânica Automotiva</h2>
+         <h4>Av. Pion Antonio Franco de Morais, 533  - Jardim Brasil</h4>
+        </div>
+         <div class="header-right">
+        <h3>44 3025-5901</h3>
+        <h3>44 99718-8463</h3>
     </div>
-     <div class="header-right">
-    <h3>4177-1663</h3>
-    <h3>4238-2020</h3>
-</div> 
 
      <hr>
      <% if logged_in? %>
@@ -184,7 +184,7 @@ Razao Social:
         </table>
 
         <%else%>
-        
+
     <table style="width: 90%">
       <caption> Relaçao de Pecas</caption>
 
@@ -243,7 +243,7 @@ Razao Social:
 
  <div>
     <%= label_tag "Diagnostico:" %>
-    <%= @orcamento.diagnostico%> 
+    <%= @orcamento.diagnostico%>
 </div>
 
  <div>
@@ -258,7 +258,7 @@ Razao Social:
     <h4>Valor Serviços:R$ <%= sumS%></h4>
     <h3>Valor Total:R$ <%=@orcamento.valor_total%></h3>
     <%end%>
-  </div> 
+  </div>
 </div>
 
 </div>
